@@ -1,0 +1,22 @@
+{
+  "name": "twitter-bot-2",
+  "version": "1.0.0",
+  "description": "This is a twitter bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JupiterLikeThePlanet/Twitter-Bot-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JupiterLikeThePlanet/Twitter-Bot-2/issues"
+  },
+  "homepage": "https://github.com/JupiterLikeThePlanet/Twitter-Bot-2#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
