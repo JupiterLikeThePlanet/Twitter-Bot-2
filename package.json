@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JupiterLikeThePlanet/Twitter-Bot-2#readme",
   "dependencies": {
+    "dotenv": "^8.1.0",
     "twit": "^2.2.11"
   }
 }
