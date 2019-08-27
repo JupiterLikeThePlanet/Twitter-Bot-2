@@ -44,4 +44,14 @@ module.exports = ({
 });
 </code></pre>
 
-## Initializing the Project
+## Creating core Functionality
+
+- create a file called `index.js`.  At the  top, add our required packages:
+
+<pre><code>
+const config = require('./src/config');
+const Twit = require('twit');
+</code></pre>
+This allows us to use our concealed api keys and brings in the twit package.  
+
+- create a  
