@@ -16,3 +16,13 @@ Access Token Secret
 
 
 Get the API keys
+
+
+Install twit
+
+Install dotenv
+
+Create a .env put your keys in the file saved to variable names. 
+
+Create a config.js file
+
