@@ -30,4 +30,23 @@ function tweetScheduler(){
     tweet(randomNumber)
 }
 
-setInterval(tweetScheduler, tenSeconds);
+function getTrends(){
+    Bot.get('trends/place', { id: '1' }, function (err, data, response) {
+        if (err) {
+            console.log("In the error")
+            console.log(err);
+        } else {
+            console.log("In the data")
+            var trendsLength = data[0].trends.length
+            var randomTrend = Math.floor(Math.random()*trendsLength)
+        
+            console.log(data[0].trends[randomTrend].name);
+            
+
+        }
+      })
+}
+
+getTrends();
+
+// setInterval(tweetScheduler, tenSeconds);
