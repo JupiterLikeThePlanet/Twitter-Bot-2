@@ -54,4 +54,4 @@ const Twit = require('twit');
 </code></pre>
 This allows us to use our concealed api keys and brings in the twit package.  
 
-- create a  
+- create a new instance of your bot by setting ait equal to a variable, like so: `const Bot = new Twit(config)`.  Of course, you can call the variable anything you want.
