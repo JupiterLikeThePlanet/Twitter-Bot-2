@@ -86,9 +86,8 @@ function tweetRandomNumber(){
 <pre><code>
 setInterval(tweetRandomNumber, tenSeconds);
 </code></pre>
-This will 
 
 - To test to see if this works, go to terminal and type, `node index.js`.  Check your twitter feed to see that it works. Check console for logs or errors.  
 
 
-###And that's where I leave you.  Feel free to continue on from there using the twit documentation to expand on other twitter api features. 
+### And that's where I leave you.  Feel free to continue on from there using the twit documentation to expand on other twitter api features. 
