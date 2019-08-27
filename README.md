@@ -55,3 +55,40 @@ const Twit = require('twit');
 This allows us to use our concealed api keys and brings in the twit package.  
 
 - create a new instance of your bot by setting ait equal to a variable, like so: `const Bot = new Twit(config)`.  Of course, you can call the variable anything you want.
+
+- I personally use variables to store my times because their written in milliseconds and var name is less confusing.  So because we are going to test our twitter bot, there's no need have long run times.  Create a variable that is set to ten seconds like so: `var tenSeconds = 10000`
+
+- Next, create a function called tweet like so:
+<pre><code>
+    function tweet(txt) {
+        Bot.post('statuses/update', {
+            status: txt
+        }, (err, data, response) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(`${data.text} tweeted!`)
+        }
+    })
+    }
+</code></pre>
+This code takes a string as it's param.  The Bot var uses a twit post command that specifically targets your tweeter posts (here read as 'statuses/update') and takes as it's status the parameter.  If it errors out the console will receive an error message, else log a successful tweet.  
+
+- Next is function I created to help me tweet a random number.  Why random? Because twitter will not post 2 duplicate statuses in a row. So for the sake of just making something work, I created a `tweetRandomNumber` function like so:
+<pre><code>
+function tweetRandomNumber(){
+    var randomNumber = Math.floor(Math.random()*1000)
+    tweet(randomNumber)
+}
+</code></pre>
+
+- Then finally at the bottom of the file, we call fire off our functions using javascripts built in function `setInterval`, taking as it's parameters our tweetRandomNumber function and the amount of time, here tenSeconds:
+<pre><code>
+setInterval(tweetRandomNumber, tenSeconds);
+</code></pre>
+This will 
+
+- To test to see if this works, go to terminal and type, `node index.js`.  Check your twitter feed to see that it works. Check console for logs or errors.  
+
+
+###And that's where I leave you.  Feel free to continue on from there using the twit documentation to expand on other twitter api features. 
