@@ -30,7 +30,9 @@ function tweetScheduler(){
     tweet(randomNumber)
 }
 
-function getTrends(){
+
+function getTrend(){
+    
     Bot.get('trends/place', { id: '1' }, function (err, data, response) {
         if (err) {
             console.log("In the error")
@@ -39,14 +41,57 @@ function getTrends(){
             console.log("In the data")
             var trendsLength = data[0].trends.length
             var randomTrend = Math.floor(Math.random()*trendsLength)
-        
-            console.log(data[0].trends[randomTrend].name);
             
+            // console.log(data[0].trends[randomTrend].name);
 
+            var rtArray = ["recent", "mixed"] //add popular?
+            var rtLength = rtArray.length
+            var random = Math.random() * (rtLength - 0) + 0
+            var num = Math.floor(random)
+            var rt = rtArray[num]
+
+            var params = {
+                q: `${data[0].trends[randomTrend].name}`,  // REQUIRED
+                result_type: rt,
+                lang: 'en'
+            }
+            ///////////////////////////////////////////////////////
+            Bot.get('search/tweets', params, function(err, data) {
+                // if there no errors
+                if (!err) {
+                    // grab ID of tweet to retweet
+                    var retweetId = data.statuses[0].id_str;
+                    debugger
+                    // Tell TWITTER to retweet
+                    Bot.post('statuses/retweet/:id', {
+                        id: retweetId
+                    }, function(err, data ,response) {
+                        if (response) {
+                            console.log(`${data.text} Retweeted!!!`);
+                        }
+                        // if there was an error while tweeting
+                        if (err) {
+                            console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                        }
+                    });
+                }
+                // if unable to Search a tweet
+                else {
+                    console.log('Something went wrong while SEARCHING...');
+                }
+            });
+            ///////////////////////////////////////////////////////
         }
+
       })
+   
 }
 
-getTrends();
 
-// setInterval(tweetScheduler, tenSeconds);
+
+// getTrend();
+
+
+
+
+setInterval(getTrend, tenSeconds);
