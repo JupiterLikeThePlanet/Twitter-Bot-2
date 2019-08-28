@@ -97,3 +97,4 @@ setInterval(tweetRandomNumber, tenSeconds);
 -please note [twitter limitations](https://help.twitter.com/en/rules-and-policies/twitter-limits)
 
 -additional documenation for the twitter api can be found [here](https://developer.twitter.com/en/docs/api-reference-index) and [here](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) 
+
