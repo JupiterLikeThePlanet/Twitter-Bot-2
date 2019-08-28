@@ -7,6 +7,8 @@ const Bot = new Twit(config)
 var thirtyMinutes = 1800000
 var hourly = 3600000
 var tenMinutes = 600000
+var minute = 60000
+var fortyFiveSeconds = 45000
 var tenSeconds = 10000
 
 
@@ -74,5 +76,4 @@ function getTrend(){
 }
 
 
-setInterval(getTrend, tenSeconds);
-
+setInterval(getTrend, fortyFiveSeconds);
