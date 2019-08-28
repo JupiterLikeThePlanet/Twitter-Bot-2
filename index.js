@@ -33,12 +33,13 @@ function tweetScheduler(){
 
 function getTrend(){
     
-    Bot.get('trends/place', { id: '1' }, function (err, data, response) {
+    //id of 1 is global, 23424977 is United States  //https://blog.twitter.com/engineering/en_us/a/2010/woeids-in-twitters-trends.html
+    Bot.get('trends/place', { id: '23424977' }, function (err, data, response) {
         if (err) {
-            console.log("In the error")
+            // console.log("In the error")
             console.log(err);
         } else {
-            console.log("In the data")
+            // console.log("In the data")
             var trendsLength = data[0].trends.length
             var randomTrend = Math.floor(Math.random()*trendsLength)
             
@@ -60,20 +61,39 @@ function getTrend(){
                 // if there no errors
                 if (!err) {
                     // grab ID of tweet to retweet
-                    var retweetId = data.statuses[0].id_str;
-                    debugger
+                    let retweetId
+                    // var retweetId = data.statuses[0].id_str;
+                    if(data.statuses[0] !== undefined){
+                        retweetId = data.statuses[0].id_str;
+
                     // Tell TWITTER to retweet
-                    Bot.post('statuses/retweet/:id', {
-                        id: retweetId
-                    }, function(err, data ,response) {
-                        if (response) {
-                            console.log(`${data.text} Retweeted!!!`);
-                        }
-                        // if there was an error while tweeting
-                        if (err) {
-                            console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                        }
-                    });
+                        Bot.post('statuses/retweet/:id', {
+                            id: retweetId
+                        }, function(err, data ,response) {
+                            if (response) {
+                                console.log(`${data.text} Retweeted!!!`);
+                            }
+                            // if there was an error while tweeting
+                            if (err) {
+                                console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                            }
+                        });
+
+
+                    }
+                    // else{
+                    //     Bot.post('statuses/update', {
+                    //         status: "Smash that subscribe for more trending hash tag posts!"
+                    //     }, (err, data, response) => {
+                    //         if (err) {
+                    //             console.log(err)
+                    //         } else {
+                    //             console.log(`${data.text} tweeted!`)
+                    //     }
+                    //     })
+
+                    // }
+                    
                 }
                 // if unable to Search a tweet
                 else {
