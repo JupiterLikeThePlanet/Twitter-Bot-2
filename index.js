@@ -81,18 +81,6 @@ function getTrend(){
 
 
                     }
-                    // else{
-                    //     Bot.post('statuses/update', {
-                    //         status: "Smash that subscribe for more trending hash tag posts!"
-                    //     }, (err, data, response) => {
-                    //         if (err) {
-                    //             console.log(err)
-                    //         } else {
-                    //             console.log(`${data.text} tweeted!`)
-                    //     }
-                    //     })
-
-                    // }
                     
                 }
                 // if unable to Search a tweet
@@ -106,10 +94,6 @@ function getTrend(){
       })
    
 }
-
-
-
-// getTrend();
 
 
 
