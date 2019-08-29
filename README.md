@@ -97,6 +97,13 @@ setInterval(tweetRandomNumber, tenSeconds);
 - If you don't have one, get a heroku account [here](https://devcenter.heroku.com/articles/heroku-cli) and follow the install instructions
 - In the terminal, type `heroku login` and press any key to be taken to the web browser to login OR If you’d prefer to stay in the CLI to enter your credentials, you may run `heroku login -i`
 
+- in package.json file add this:
+<pre><code>
+  "scripts": {
+    "start": "node index.js"
+  },
+</code></pre>
+
 
 
 
