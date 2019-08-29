@@ -40,18 +40,39 @@ function getTrend(){
                 // if there no errors
                 if (!err) {
                     
-                    let retweetId
+                    let retweetId,
+                        userId
                     if(data.statuses[0] !== undefined){
 
                         // grab ID of tweet to retweet
                         retweetId = data.statuses[0].id_str;
 
-                    // Tell TWITTER to retweet
+                        // console.log("===========data============");
+                        // console.log(data);
+
+                        console.log("===========data.statuses============")
+                        userId = data.statuses[0].user.id
+                        console.log(userId)
+
+                    //Tell TWITTER to retweet
                         Bot.post('statuses/retweet/:id', {
                             id: retweetId
                         }, function(err, data ,response) {
                             if (response) {
                                 console.log(`${data.text} Retweeted!!!`);
+                            }
+                            // if there was an error while tweeting
+                            if (err) {
+                                console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                            }
+                        });
+
+                        // Tell Twitter to friend this tweeter
+                        Bot.post('friendships/create', {
+                            user_id: userId
+                        }, function(err, data ,response) {
+                            if (response) {
+                                console.log(`friended!!!`);
                             }
                             // if there was an error while tweeting
                             if (err) {

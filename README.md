@@ -1,4 +1,4 @@
-#This is a twitter bot called HOT GOSS
+#This is a twitter bot called SHEEPLE (@sheeplefollows)
 
 ## Non Code Setup 
 - Either create a twitter account or use one you are comfortable making into a bot.  
