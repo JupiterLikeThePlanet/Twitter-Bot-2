@@ -90,6 +90,18 @@ setInterval(tweetRandomNumber, tenSeconds);
 - To test to see if this works, go to terminal and type, `node index.js`.  Check your twitter feed to see that it works. Check console for logs or errors.  
 
 
+
+
+## Launching to Heroku
+
+- If you don't have one, get a heroku account [here](https://devcenter.heroku.com/articles/heroku-cli) and follow the install instructions
+- In the terminal, type `heroku login` and press any key to be taken to the web browser to login OR If you’d prefer to stay in the CLI to enter your credentials, you may run `heroku login -i`
+
+
+
+
+
+
 ### And that's where I leave you.  Feel free to continue on from there using the twit documentation to expand on other twitter api features. 
 
 <hr>

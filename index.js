@@ -76,4 +76,5 @@ function getTrend(){
 }
 
 
-setInterval(getTrend, fortyFiveSeconds);
+// setInterval(getTrend, fortyFiveSeconds);
+setInterval(getTrend, tenSeconds);
