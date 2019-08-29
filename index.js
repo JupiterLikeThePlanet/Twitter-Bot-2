@@ -41,7 +41,9 @@ function getTrend(){
                 if (!err) {
                     
                     let retweetId,
-                        userId
+                        userId,
+                        screenName
+                        
                     if(data.statuses[0] !== undefined){
 
                         // grab ID of tweet to retweet
@@ -52,9 +54,10 @@ function getTrend(){
 
                         console.log("===========data.statuses============")
                         userId = data.statuses[0].user.id
-                        console.log(userId)
+                        screenName = data.statuses[0].user.screen_name
+                        console.log(screenName)
 
-                    //Tell TWITTER to retweet
+                        // Tell TWITTER to retweet
                         Bot.post('statuses/retweet/:id', {
                             id: retweetId
                         }, function(err, data ,response) {
@@ -69,14 +72,15 @@ function getTrend(){
 
                         // Tell Twitter to friend this tweeter
                         Bot.post('friendships/create', {
+                            screen_name: screenName,
                             user_id: userId
                         }, function(err, data ,response) {
                             if (response) {
-                                console.log(`friended!!!`);
+                                console.log(`${screenName} friended!!!`);
                             }
                             // if there was an error while tweeting
                             if (err) {
-                                console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                                console.log('Something went wrong while FRIENDING... Duplication maybe...');
                             }
                         });
 
