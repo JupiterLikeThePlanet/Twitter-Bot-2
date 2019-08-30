@@ -1,4 +1,4 @@
-#This is a twitter bot called SHEEPLE (@sheeplefollows)
+# This is a twitter bot called SHEEPLE (@sheeplefollows)
 
 ## Non Code Setup 
 - Either create a twitter account or use one you are comfortable making into a bot.  
@@ -9,7 +9,7 @@
 * Access Token Key
 * Access Token Secret
 
-> A good breakdown of these past steps can be found [here](Follow these steps: https://dev.to/omarhashimoto/how-to-build-a-simple-twitter-bot-in-17-lines-ofcode-2aan)
+> A good breakdown of these past steps can be found here.  https://dev.to/omarhashimoto/how-to-build-a-simple-twitter-bot-in-17-lines-ofcode-2aan)
 
 
 ## Initializing the Project
@@ -107,16 +107,20 @@ setInterval(tweetRandomNumber, tenSeconds);
 
 - Since we are not uploading our .env file, we need to tell heroku what our environment variables are. They can be added in the settings tab of the application in the heroku dashboard, or by the command line using the command:
 
-`$ heroku config:set VARIABLE_NAME=VALUE`
+> `$ heroku config:set VARIABLE_NAME=VALUE`
 
 - Since our app is a bot, you need an additional step. Because it’s not a web server, you have to tell heroku that this app is a “worker” app. This is done with a “Procfile”. This is a file called exactly “Procfile” (so create it with extension to the filename) in your node directory with a single line:
 
-`worker: node index.js`
+> `worker: node index.js`
 
-- You'll then need to login to your dashboard and navigate to the app. The “worker” dyno must be enabled rather than the default web one (npm start). The app’s dashboard should look like the following:
+- You'll then need to login to your dashboard and navigate to the app. The “worker” dyno must be enabled rather than the default web one (npm start). In the heroku dashboard, select the resources tab abd you should look like the following:
+
+> ![Resources Tab](./img/resources-tab.png)
 
 
-- Depending on the order in which you have done things, you might need to restart your app using `$ heroku restart` in the terminal
+- Depending on the order in which you have done things, you might need to restart your app using `$ heroku restart` in the terminal for any troubleshooting
+
+
 
 
 
