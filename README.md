@@ -1,5 +1,8 @@
 # This is a twitter bot called SHEEPLE (@sheeplefollows)
 
+### Before coding, please read.
+> The following ReadMe includes boilerplate code that can be found in the folder /boilerplate-code.  The current code in the main folder called index has a different code base to demonstrate further functionality. If you just want to get up and running and start with the basics, refer to the index.js in the boilerplate file as our example.  However, please follow these instructions as if the index file you are using is in the main folder  
+
 ## Non Code Setup 
 - Either create a twitter account or use one you are comfortable making into a bot.  
 - You'll need to [sign up](https://apps.twitter.com/) to create a Twitter App
