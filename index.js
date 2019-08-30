@@ -113,4 +113,4 @@ function getTrendAndFollow(){
 
 
 // setInterval(getTrend, fortyFiveSeconds);
-setInterval(getTrendAndFollow, tenSeconds);
+setInterval(getTrendAndFollow, minute);

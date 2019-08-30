@@ -95,6 +95,7 @@ setInterval(tweetRandomNumber, tenSeconds);
 ## Launching to Heroku
 
 - If you don't have one, get a heroku account [here](https://devcenter.heroku.com/articles/heroku-cli) and follow the install instructions
+
 - In the terminal, type `heroku login` and press any key to be taken to the web browser to login OR If you’d prefer to stay in the CLI to enter your credentials, you may run `heroku login -i`
 
 - in package.json file add this:
@@ -104,6 +105,18 @@ setInterval(tweetRandomNumber, tenSeconds);
   },
 </code></pre>
 
+- Since we are not uploading our .env file, we need to tell heroku what our environment variables are. They can be added in the settings tab of the application in the heroku dashboard, or by the command line using the command:
+
+`$ heroku config:set VARIABLE_NAME=VALUE`
+
+- Since our app is a bot, you need an additional step. Because it’s not a web server, you have to tell heroku that this app is a “worker” app. This is done with a “Procfile”. This is a file called exactly “Procfile” (so create it with extension to the filename) in your node directory with a single line:
+
+`worker: node index.js`
+
+- You'll then need to login to your dashboard and navigate to the app. The “worker” dyno must be enabled rather than the default web one (npm start). The app’s dashboard should look like the following:
+
+
+- Depending on the order in which you have done things, you might need to restart your app using `$ heroku restart` in the terminal
 
 
 
@@ -117,3 +130,4 @@ setInterval(tweetRandomNumber, tenSeconds);
 
 -additional documenation for the twitter api can be found [here](https://developer.twitter.com/en/docs/api-reference-index) and [here](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) 
 
+-thorough heroku launching notes [here](https://github.com/hoovercj/nodejs-twitterbot-tutorial/blob/master/README.md) and [here](https://shiffman.net/a2z/bot-heroku/).  That second one is the best!
