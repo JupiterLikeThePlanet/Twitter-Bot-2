@@ -1,6 +1,8 @@
 const config = require('./src/config');
 const Twit = require('twit');
 
+
+
 const Bot = new Twit(config)
 
 /// setting time intervals
@@ -93,7 +95,6 @@ function getTrendAndFollow(){
                                 console.log('Something went wrong while FRIENDING... Duplication maybe...');
                             }
                         });
-
 
                     }
                     

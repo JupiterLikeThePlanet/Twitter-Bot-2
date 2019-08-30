@@ -2,7 +2,6 @@ const config = require('../src/config');
 const Twit = require('twit');
 
 
-
 const Bot = new Twit(config)
 
 /// setting time intervals
