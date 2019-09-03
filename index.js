@@ -31,7 +31,7 @@ function getTrendAndFollow(){
             var randomTrend = Math.floor(Math.random()*trendsLength)
 
             // Select from either recent or mixed time periods,
-            var rtArray = ["recent", "mixed"] //add popular?
+            var rtArray = ["popular", "mixed"] //add recent?
             var rtLength = rtArray.length
 
             //Grab a random tweet from the previous constraints
