@@ -32,6 +32,8 @@ BOT_ACCESS_TOKEN=YourKeyHere
 BOT_ACCESS_TOKEN_SECRET=YourKeyHere
 </code></pre>
 
+
+
 - Let's start with creating a folder called /src.  Inside this folder we will create a file called `config.js`.  
 
 - inside the config file, add the following code.  Note that the variable names I'm using here are the same ones we used in the `.env` file.  
@@ -46,6 +48,10 @@ module.exports = ({
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
 </code></pre>
+
+- inside your .gitignore file, add `.env` to list of file types to ignore
+
+** note that the .env file will not appear in this github repo because it is in our gitignore file, which is the whole point. You want to hide those keys!
 
 ## Creating core Functionality
 
@@ -101,6 +107,10 @@ setInterval(tweetRandomNumber, tenSeconds);
 
 - In the terminal, type `heroku login` and press any key to be taken to the web browser to login OR If you’d prefer to stay in the CLI to enter your credentials, you may run `heroku login -i`
 
+- In your terminal, create your app by typing `heroku create app {insert name of app here}`.  (i.e. `heroku create app weatherApp`)
+
+- If you have multiple apps and you want to push changes to a specific one, this [stack overflow article](https://stackoverflow.com/questions/32815483/heroku-how-do-you-push-to-specific-app-if-you-have-multiple-apps-in-heroku) explains how to do that. 
+
 - in package.json file add this:
 <pre><code>
   "scripts": {
@@ -112,13 +122,23 @@ setInterval(tweetRandomNumber, tenSeconds);
 
 > `$ heroku config:set VARIABLE_NAME=VALUE`
 
-- Since our app is a bot, you need an additional step. Because it’s not a web server, you have to tell heroku that this app is a “worker” app. This is done with a “Procfile”. This is a file called exactly “Procfile” (so create it with extension to the filename) in your node directory with a single line:
+- Since our app is a bot, you need an additional step. Because it’s not a web server, you have to tell heroku that this app is a “worker” app. This is done with a “Procfile”. This is a file called exactly “Procfile” (so create it without extension to the filename [i.e. Procfile, not Procfile.js] in your node directory with a single line:
 
 > `worker: node index.js`
 
-- You'll then need to login to your dashboard and navigate to the app. The “worker” dyno must be enabled rather than the default web one (npm start). In the heroku dashboard, select the resources tab abd you should look like the following:
+- At this point you should commit your changes BOTH TO GITHUB AND HEROKU.  For git, in your terminal follow these three steps:
+1. `git add .`  This will add all changes
+2. `git commit -m  {enter your commit message here}`
+3. `git push origin master`
+And now you can push to heroku master:
+4. `git push heroku master`
+
+
+- You'll then need to login to your dashboard and navigate to the app. The “worker” dyno must be enabled rather than the default web one (npm start). In the heroku dashboard, select the resources tab and you should look like the following:
 
 > ![Resources Tab](./img/resources-tab.png)
+
+** Note you will not see the worker dyno in the dash if you did not commit and push your changes!
 
 
 - Depending on the order in which you have done things, you might need to restart your app using `$ heroku restart` in the terminal for any troubleshooting
